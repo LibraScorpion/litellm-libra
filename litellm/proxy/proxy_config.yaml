@@ -1,18 +1,73 @@
 model_list:
-  - model_name: anthropic/*
+  # OpenRouter原始模型名称
+  - model_name: anthropic/claude-sonnet-4
     litellm_params:
-      model: anthropic/*
-  - model_name: openai/*
+      model: openrouter/anthropic/claude-sonnet-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: anthropic/claude-opus-4
     litellm_params:
-      model: openai/*
-
-guardrails:
-  - guardrail_name: "bedrock-pre-guard"
+      model: openrouter/anthropic/claude-opus-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: google/gemini-2.5-pro
     litellm_params:
-      guardrail: bedrock  # supported values: "aporia", "bedrock", "lakera"
-      mode: "during_call"
-      guardrailIdentifier: ff6ujrregl1q
-      guardrailVersion: "DRAFT"
+      model: openrouter/google/gemini-2.5-pro
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: google/gemini-2.5-flash
+    litellm_params:
+      model: openrouter/google/gemini-2.5-flash
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  
+  # Claude Code模型名称映射
+  - model_name: claude-sonnet-4-20250514
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: claude-3-5-haiku-20241022
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: claude-3-5-sonnet-20241022
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: claude-3-opus-20240229
+    litellm_params:
+      model: openrouter/anthropic/claude-opus-4
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: gemini-2.0-flash-exp
+    litellm_params:
+      model: openrouter/google/gemini-2.5-flash
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
+  - model_name: gemini-1.5-pro-002
+    litellm_params:
+      model: openrouter/google/gemini-2.5-pro
+      api_key: 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
+      api_base: https://openrouter.ai/api/v1
+      custom_llm_provider: openrouter
 
 litellm_settings:
-  callbacks: ["datadog_llm_observability"]
+  success_callback: []
+  failure_callback: []
+  drop_params: true
+  set_verbose: false
+
+general_settings:
+  master_key: temp-key-8947263
